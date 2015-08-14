@@ -4,10 +4,11 @@
             <table class="table table-striped latest-data">
                 <tbody>
                 {{#proxied-each
-                  keyForId="id"
+                  key="id"
                   content=model.databases
                   as |db|
                 }}
+                  {{log db}}
                   {{mdbmon-database db=db.content}}
                 {{/proxied-each}}
                 </tbody>
@@ -15,7 +16,7 @@
         </div>
         <div class="col-sm-5">
             <h3>Adjust Timeout</h3>
-          {{input value=timeout}}
+           {{input value=timeout}}
 
             <h3>Adjust Rows</h3>
             {{input value=numRows}}

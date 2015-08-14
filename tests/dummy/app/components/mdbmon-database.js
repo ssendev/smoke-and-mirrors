@@ -8,14 +8,15 @@ export default Ember.Component.extend({
 
   tagName: 'tr',
 
-  queries: computed('db', function() {
+  queries: computed('attrs.db', function() {
+    console.log('queries');
     return this.get('db.queries');
   }),
 
   topFiveQueries: computed('queries', function() {
-
-    var queries = this.get('queries');
-    var topFiveQueries = queries.slice(0, 5);
+    console.log('topFiveQueries');
+    let queries = this.get('queries');
+    let topFiveQueries = queries.slice(0, 5);
 
     while (topFiveQueries.length < 5) {
       topFiveQueries.push({ query: "" });
@@ -33,8 +34,8 @@ export default Ember.Component.extend({
   }),
 
   countClassName: computed('queries', function() {
-    var queries = this.get('queries');
-    var countClassName = "label";
+    let queries = this.get('queries');
+    let countClassName = "label";
 
     if (queries.length >= 20) {
       countClassName += " label-important";

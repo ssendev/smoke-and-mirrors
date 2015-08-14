@@ -1,4 +1,3 @@
-
 <td class="dbname">
   {{attrs.db.id}}
 </td>
@@ -8,8 +7,9 @@
   </span>
 </td>
 {{#proxied-each
-  keyForId="key"
-  contentToProxy=topFiveQueries as |query|}}
+  key="key"
+  content=topFiveQueries
+  as |query|}}
   <td>{{query.elapsed}}</td>
   <div class="popover bottom">
       <div class="popover-content">{{query.query}}</div>
